@@ -1,6 +1,21 @@
 import React from 'react'
 import Sidebar from './Sidebar'
+import { useMainContext } from '../../context/MainContext'
+import { useAuthContext } from '../../context/AuthContext'
+ 
 const FallHistory = () => {
+    const { CFAddress, walletProvider } = useAuthContext()
+    const {fetchFallDetails} = useMainContext()
+    React.useEffect(() => {
+    if (CFAddress && walletProvider) {
+      fetchUserDetails(walletProvider, CFAddress)
+      fetchFallDetails(walletProvider, CFAddress)
+    }
+  }, [
+    CFAddress,
+    walletProvider,
+  ])
+
   return (
     <div>
       <Sidebar />

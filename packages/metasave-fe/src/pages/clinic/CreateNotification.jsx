@@ -45,7 +45,7 @@ const CreateNotification = () => {
               name="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="mt-2 block w-full border-b-2 border-gray-300 sm:text-sm"
+              className="mt-2 block w-full border-b-2 border-gray-300 sm:text-sm outline-none" 
               rows="3"
               required
             ></textarea>
@@ -64,7 +64,7 @@ const CreateNotification = () => {
                 type="text"
                 value={appointment}
                 onChange={(e) => setAppointment(e.target.value)}
-                className="mt-2 block w-full border-b-2 border-gray-300 sm:text-sm"
+                className="mt-2 block w-full border-b-2 border-gray-300 sm:text-sm outline-none"
               />
             </div>
             <div>
@@ -79,7 +79,7 @@ const CreateNotification = () => {
                 name="clinicStatus"
                 value={clinicStatus}
                 onChange={(e) => setClinicStatus(e.target.value)}
-                className="mt-2 block w-full border-b-2 border-gray-300 sm:text-sm"
+                className="mt-2 block w-full border-b-2 border-gray-300 sm:text-sm outline-none"
                 required
               >
                 <option value="open">Open</option>

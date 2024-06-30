@@ -1,90 +1,94 @@
-import React, { useState, useEffect } from 'react'
-import Sidebar from './Sidebar'
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital'
-import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined'
-import { useMainContext } from '../../context/MainContext'
-import { useAuthContext } from '../../context/AuthContext'
+import React, { useState, useEffect } from 'react';
+import Sidebar from './Sidebar';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
+import { useMainContext } from '../../context/MainContext';
+import { useAuthContext } from '../../context/AuthContext';
 
 const ClinicProfile = () => {
-  const [clinicName, setClinicName] = useState('Woodland Clinic')
-  const [editingClinicName, setEditingClinicName] = useState(false)
-  const [newClinicName, setNewClinicName] = useState('')
-  const [emailAddress, setEmailAddress] = useState('Woodland@matasave.ai')
-  const [editingEmail, setEditingEmail] = useState(false)
-  const [newEmail, setNewEmail] = useState('')
-  const [phoneNumber1, setPhoneNumber1] = useState('9746424414')
-  const [editingPhone1, setEditingPhone1] = useState(false)
-  const [newPhone1, setNewPhone1] = useState('')
-  const [phoneNumber2, setPhoneNumber2] = useState('9849349321')
-  const [editingPhone2, setEditingPhone2] = useState(false)
-  const [newPhone2, setNewPhone2] = useState('')
-  const [addressLine, setAddressLine] = useState('Singapore')
-  const [editingAddress, setEditingAddress] = useState(false)
-  const [newAddress, setNewAddress] = useState('')
+  const [clinicName, setClinicName] = useState('Woodland Clinic');
+  const [editingClinicName, setEditingClinicName] = useState(false);
+  const [newClinicName, setNewClinicName] = useState('');
+  const [emailAddress, setEmailAddress] = useState('Woodland@matasave.ai');
+  const [editingEmail, setEditingEmail] = useState(false);
+  const [newEmail, setNewEmail] = useState('');
+  const [phoneNumber1, setPhoneNumber1] = useState('9746424414');
+  const [editingPhone1, setEditingPhone1] = useState(false);
+  const [newPhone1, setNewPhone1] = useState('');
+  const [phoneNumber2, setPhoneNumber2] = useState('9849349321');
+  const [editingPhone2, setEditingPhone2] = useState(false);
+  const [newPhone2, setNewPhone2] = useState('');
+  const [addressLine, setAddressLine] = useState('Singapore');
+  const [editingAddress, setEditingAddress] = useState(false);
+  const [newAddress, setNewAddress] = useState('');
 
-  const { initWeb3Auth, CFAddress, walletProvider } = useAuthContext()
-  const { clinicDetails, fetchClinicDetails } = useMainContext()
-
-  useEffect(() => {
-    initWeb3Auth()
-  }, [])
+  const { initWeb3Auth, CFAddress, walletProvider } = useAuthContext();
+  const { clinicDetails, fetchClinicDetails } = useMainContext();
 
   useEffect(() => {
-    fetchClinicDetails('0x0cBe46cDA9015E0fd8704249C2FCDAfbE2507550')
-  }, [])
+    initWeb3Auth();
+  }, []);
+
+  useEffect(() => {
+    fetchClinicDetails('0x0cBe46cDA9015E0fd8704249C2FCDAfbE2507550');
+  }, []);
 
   const handleEditClick = (field) => {
     switch (field) {
       case 'clinicName':
-        setEditingClinicName(true)
-        setNewClinicName(clinicName)
-        break
+        setEditingClinicName(true);
+        setNewClinicName(clinicName);
+        break;
       case 'email':
-        setEditingEmail(true)
-        setNewEmail(emailAddress)
-        break
+        setEditingEmail(true);
+        setNewEmail(emailAddress);
+        break;
       case 'phone1':
-        setEditingPhone1(true)
-        setNewPhone1(phoneNumber1)
-        break
+        setEditingPhone1(true);
+        setNewPhone1(phoneNumber1);
+        break;
       case 'phone2':
-        setEditingPhone2(true)
-        setNewPhone2(phoneNumber2)
-        break
+        setEditingPhone2(true);
+        setNewPhone2(phoneNumber2);
+        break;
       case 'address':
-        setEditingAddress(true)
-        setNewAddress(addressLine)
-        break
+        setEditingAddress(true);
+        setNewAddress(addressLine);
+        break;
       default:
-        break
+        break;
     }
-  }
+  };
 
   const handleSaveClick = (field) => {
     switch (field) {
       case 'clinicName':
-        setClinicName(newClinicName)
-        setEditingClinicName(false)
-        break
+        setClinicName(newClinicName);
+        setEditingClinicName(false);
+        break;
       case 'email':
-        setEmailAddress(newEmail)
-        setEditingEmail(false)
-        break
+        setEmailAddress(newEmail);
+        setEditingEmail(false);
+        break;
       case 'phone1':
-        setPhoneNumber1(newPhone1)
-        setEditingPhone1(false)
-        break
+        setPhoneNumber1(newPhone1);
+        setEditingPhone1(false);
+        break;
       case 'phone2':
-        setPhoneNumber2(newPhone2)
-        setEditingPhone2(false)
-        break
+        setPhoneNumber2(newPhone2);
+        setEditingPhone2(false);
+        break;
       case 'address':
-        setAddressLine(newAddress)
-        setEditingAddress(false)
-        break
+        setAddressLine(newAddress);
+        setEditingAddress(false);
+        break;
       default:
-        break
+        break;
     }
+  };
+
+  if (!clinicDetails) {
+    return <div>Loading...</div>; // You can replace this with a loading spinner if needed
   }
 
   return (
@@ -255,7 +259,7 @@ const ClinicProfile = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ClinicProfile
+export default ClinicProfile;

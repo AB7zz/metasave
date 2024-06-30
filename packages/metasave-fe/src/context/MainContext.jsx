@@ -27,6 +27,7 @@ export const MainContextProvider = ({ children }) => {
   const [walletProvider, setWalletProvider] = React.useState()
   const [CFAddress, setCFAddress] = React.useState()
   const [clinicDetails, setClinicDetails] = useState(null);
+  const [patients, setPatients] = useState([]);
   const [devices, setDevices] = React.useState([
     // ...additional devices
   ])
@@ -187,6 +188,18 @@ export const MainContextProvider = ({ children }) => {
     }
 }
 
+// should actually pass the cid of the clinic
+  const fetchPatientsOfClinic = async (clinicId) => {
+    try {
+      const res = await axios.get(`${serverUrl}/${clinicId}/patients`);
+      // returns all the cids related to that clinic
+      console.log("Fetched patients: ", res.data.patients);
+      setPatients(res.data.patients);
+    } catch (err) {
+      console.log('Error fetching patients of clinic', err);
+    }
+  };
+
 
 
   return (
@@ -198,6 +211,7 @@ export const MainContextProvider = ({ children }) => {
         fallPopup,
         devices,
         clinicDetails,
+        patients,
         setDevices,
         setFallPopup,
         setFallDetails,
@@ -207,7 +221,8 @@ export const MainContextProvider = ({ children }) => {
         insertUserDetails,
         fetchDevices,
         insertClinicDetails,
-        fetchClinicDetails
+        fetchClinicDetails,
+        fetchPatientsOfClinic,
       }}
     >
       {children}

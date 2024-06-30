@@ -68,6 +68,7 @@ function App() {
             <Route path="/user/register" element={<UserRegister />} />
 
             {/* Clinic Routes */}
+            <Route path='/clinic/' element={<Navigate to={`/clinic/dashboard`} />} />
             <Route path="/clinic/dashboard/*" element={<CDash />} />
             <Route path="/clinic/profile" element={<ClinicProfile />} />
             <Route

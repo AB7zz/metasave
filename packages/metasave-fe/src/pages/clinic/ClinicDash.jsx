@@ -90,9 +90,8 @@ const ClinicDash = () => {
                 alt="stethescope"
                 className="absolute top-16 right-4  w-16 h-16"
               />
-            </Link>
-
-            <div className="flex justify-between items-end mt-12"></div>
+            
+            <div className="flex justify-between items-end mt-12"></div></Link>
           </div>
         </div>
       </div>

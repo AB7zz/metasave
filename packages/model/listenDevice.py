@@ -40,7 +40,7 @@ firebase_admin.initialize_app(cred, {
 })
 
 fall_ref = db.reference('/fall')
-url = 'http://localhost:5000/api/fall'
+url = env_vars["BACKEND_URL"]
 
 # BLE UUID constants
 FALL_DETECTION_SERVICE_UUID = "19B10000-E8F2-537E-4F6C-D104768A1214"

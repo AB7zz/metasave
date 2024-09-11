@@ -46,7 +46,7 @@ CHAR_UUID = "12345678-1234-5678-9abc-def012345679"
 
 AUTH_KEY_CHAR_UUID = "12345678-1234-5678-9abc-def012345680"
 
-url = 'http://localhost:5000/api/fall'  
+url = env_vars["BACKEND_URL"]  
 
 stop_ble_reading_event = asyncio.Event()
 

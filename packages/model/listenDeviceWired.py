@@ -44,7 +44,7 @@ fall_ref = db.reference('/fall')
 serial_port = '/dev/cu.usbmodem101'  # Replace with your port
 baud_rate = 9600       # Must match the baud rate in the Arduino sketch
 
-url = 'http://localhost:5000/api/fall'
+url = env_vars["BACKEND_URL"]
 
 stop_serial_reading_event = threading.Event()
 

@@ -34,7 +34,7 @@ fall_ref = db.reference('/fall')
 
 PRIV_KEY = env_vars["PRIV_KEY"]
 
-url = 'http://localhost:5000/api/fall'
+url = env_vars["BACKEND_URL"]
 
 prediction_data = { 
     'username': 'ab7zz',

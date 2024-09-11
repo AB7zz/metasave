@@ -117,7 +117,7 @@ env_vars = dotenv_values()
 
 PRIV_KEY = env_vars["PRIV_KEY"]
 
-url = 'http://localhost:5000/api/fall'  
+url = env_vars["BACKEND_URL"]  
 
 # scheduled to run on GPU by default
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

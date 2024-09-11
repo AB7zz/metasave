@@ -1,0 +1,40 @@
+{
+  "name": "@metasave/metasave-be",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --experimental-json-modules index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@alchemy/aa-accounts": "^3.19.0",
+    "@alchemy/aa-alchemy": "^3.19.0",
+    "@alchemy/aa-core": "^3.19.0",
+    "@helia/dag-json": "^3.0.0",
+    "@helia/json": "^3.0.0",
+    "@helia/strings": "^3.0.0",
+    "@helia/unixfs": "^3.0.0",
+    "@openzeppelin/merkle-tree": "^1.0.6",
+    "@thirdweb-dev/sdk": "^4.0.49",
+    "axios": "^1.6.7",
+    "cids": "^1.1.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^5.7.2",
+    "express": "^4.18.2",
+    "form-data": "^4.0.0",
+    "formdata-node": "^6.0.3",
+    "helia": "^4.0.1",
+    "keccak256": "^1.0.6",
+    "multer": "^1.4.5-lts.1",
+    "multihashing-async": "^2.1.4",
+    "viem": "^2.9.26"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

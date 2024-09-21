@@ -45,7 +45,7 @@ export const MainContextProvider = ({ children }) => {
       })
     }
   }, [walletProvider, CFAddress])
-  const serverUrl = 'http://localhost:5000/api'
+  const serverUrl = import.meta.env.VITE_BACKEND_URL
   const [userDetails, setUserDetails] = React.useState({})
 
   const [fallDetails, setFallDetails] = React.useState({

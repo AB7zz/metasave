@@ -121,7 +121,7 @@ model = model.half().to(device)
 _ = model.eval()
 
 video_path = "packages/model/fall.mp4"
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(video_path)
 
 if (cap.isOpened() == False):
     print('Error while trying to read video. Please check path again')

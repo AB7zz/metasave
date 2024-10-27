@@ -45,7 +45,11 @@ ADDRESS = "E0:F7:BF:E9:2B:7C"
 SERVICE_UUID = "12345678-1234-5678-9abc-def012345678"
 CHAR_UUID = "12345678-1234-5678-9abc-def012345679"
 
+<<<<<<< HEAD
 url = 'http://localhost:5000/api/fall'
+=======
+url = env_vars["BACKEND_URL"]
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
 
 # Function to send the authentication key using BleakClient
 async def send_authentication_key(address, auth_key):

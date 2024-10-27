@@ -11,7 +11,11 @@ import requests
 import json
 from io import BytesIO
 
+<<<<<<< HEAD
 url = 'http://localhost:5000/api/fall'  
+=======
+url = env_vars["BACKEND_URL"]  
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
 
 # Initialize the device to GPU if available
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

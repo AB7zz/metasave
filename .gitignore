@@ -1,3 +1,9 @@
 node_modules
 firebase_credentials.json
+<<<<<<< HEAD
 *.env
+=======
+*.env
+*.pt
+*.h5
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958

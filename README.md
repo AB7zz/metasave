@@ -2,6 +2,24 @@
 
 A collaborative project between CUSAT and Homomorphic Software Pvt Ltd with a grant from Ethereum foundation.
 
+<<<<<<< HEAD
+=======
+## Purpose of each module:
+
+# metasave-fe
+A client side for both user & hospital. 
+User can view their fall details/close contacts/profile/hospital/devices.
+
+# metasave-be
+This handles all the functionalities like authentication/fall data/whatsapp messages to close contacts/user data/communicating with blockchain & IPFS/etc.
+
+# metasave-contracts
+This handles all the functionalities related to the smart contracts on the blockchain.
+
+# Model
+This contains the code for the YOLOv7-W6-Pose model, code for the Nano BLE Arduino script, and the python script to simulate a fall using the wearable device or the camera.
+
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
 ## Data Flow Diagram
 
 Below is the Data Flow Diagram (DFD) that outlines the flow of data across the system:
@@ -33,6 +51,7 @@ Below is the Data Flow Diagram (DFD) that outlines the flow of data across the s
 ![ROC Curve](metrics/roc.png)
 ![Confusion Matrix](metrics/confusion_matrix.png)
 
+<<<<<<< HEAD
 ## Installation
 
 This project uses a monorepo structure that includes both front-end and back-end components. To get started, run the following commands:
@@ -53,6 +72,8 @@ npm dev-camera
 # Run odroid
 npm dev-odroid
 ```
+=======
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
 
 # Project Setup Guide
 
@@ -130,6 +151,7 @@ npm dev-odroid
 
 0 is default for the system's native camera. You can set the value inside the VideoCapture function to other numbers, which represent additional peripherically connected cameras.
 
+<<<<<<< HEAD
 ### Setting Up Wearable Device (optional)
 
 The camera.py script is capable of execution even if the wearable device isn't connected. But if you would like to set it up, follow this procedure:
@@ -155,3 +177,57 @@ This is the code that's supposed to run inside the camera. It detects a fall and
 
 # Odroid
 This regularly listens for data from the wearable device. If it detects a fall, it also sends the details to the backend.
+=======
+### Setting Up Wearable Device & Simulating a Fall
+
+The camera.py script is capable of execution even if the wearable device isn't connected. But if you would like to set it up, follow this procedure:
+
+- **Navigate to the ```packages/model/listenDevice.py``` script**
+- **Change the ```SERIAL_PORT``` to the port your Arduino board is connected to**
+- **Change the ```DEVICE_ADDRESS``` to the MAC address of your Arduino board**
+- **Change the ```BAUD_RATE``` to the baud rate of your Arduino board**
+- **Navigate to the ```packages/model/nano_ble_wired.ino``` script**
+- **Upload the script to the Arduino board**
+- **Change the directory back to the root of the project and run the following commands:**
+    ```bash
+    npm run dev-listen
+    ```
+
+That's it, you're all set to go
+
+### Simulating a Fall with the camera
+
+- **Navigate to the ```packages/model/camera.py``` script**
+- **Change the ```SERIAL_PORT``` to the port your Arduino board is connected to**
+- **Change the ```DEVICE_ADDRESS``` to the MAC address of your Arduino board**
+- **Change the ```BAUD_RATE``` to the baud rate of your Arduino board**
+- **Navigate to the ```packages/model/nano_ble_wired.ino``` script**
+- **Upload the script to the Arduino board**
+- **Change the directory back to the root of the project and run the following commands:**
+    ```bash
+    npm run dev-camera
+
+    ```
+
+### Simulating a Fall without a camera or wearable device
+
+- **Change the directory back to the root of the project and run the following commands:**
+    ```bash
+    npm run dev-apitest
+    ```
+
+## Installation & Running the Project
+
+This project uses a monorepo structure that includes both front-end and back-end components. To get started, run the following commands:
+
+```bash
+# Install dependencies for both front-end and back-end
+npm install
+
+# Run the front-end development server
+npm run dev-fe
+
+# Run the back-end development server
+npm run dev-be
+```
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958

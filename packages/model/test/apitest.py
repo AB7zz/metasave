@@ -34,12 +34,20 @@ fall_ref = db.reference('/fall')
 
 PRIV_KEY = env_vars["PRIV_KEY"]
 
+<<<<<<< HEAD
 url = 'http://localhost:5000/api/fall'
+=======
+url = env_vars["BACKEND_URL"]
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
 
 prediction_data = { 
     'username': 'ab7zz',
     'timestamp': '12:40pm',
+<<<<<<< HEAD
     'date': '16-05-2024',
+=======
+    'date': '01-09-2024',
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
     'status': 'fallen'
 }
 
@@ -47,7 +55,11 @@ fall_ref.set(prediction_data)
 
 prediction_data_json = json.dumps(prediction_data)
 
+<<<<<<< HEAD
 file_name = 'fall.jpg'
+=======
+file_name = 'packages/model/test/fall.jpg'
+>>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
 try:
     with open(file_name, 'rb') as f:
         files = {'file': (file_name, f.read())}

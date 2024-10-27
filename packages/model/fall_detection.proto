@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package fall_detection;
+
+service FallDetectionService {
+    rpc DetectFall (FallRequest) returns (FallResponse) {}
+}
+
+message FallRequest {
+    bytes frame_data = 1;
+    int32 height = 2;
+    int32 width = 3;
+}
+
+message FallResponse {
+    bool fallen = 1;
+}

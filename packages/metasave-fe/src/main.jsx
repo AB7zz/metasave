@@ -17,8 +17,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </AuthContextProvider>
     </MainContextProvider>
   </React.StrictMode>
-<<<<<<< HEAD
 )
-=======
-)
->>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958

@@ -67,9 +67,6 @@ async def find_bluetooth_device(target_address):
             return device.address
     return None
 
-<<<<<<< HEAD
-loop = asyncio.get_event_loop()
-=======
 # loop = asyncio.get_event_loop()
 
 try:
@@ -77,7 +74,6 @@ try:
 except RuntimeError:  # No running event loop
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
->>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
 
 device_address = loop.run_until_complete(find_bluetooth_device(address))
 

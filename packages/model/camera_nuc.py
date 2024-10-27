@@ -240,4 +240,4 @@ class FallDetectionClient:
 
 if __name__ == "__main__":
     client = FallDetectionClient()
-    client.run(r"D:\metasave\packages\model\fall.mp4")
+    client.run(r"D:\VSCODE\metasave\packages\model\fall.mp4")

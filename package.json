@@ -6,16 +6,11 @@
     "dev": "concurrently \"npm run dev-fe\" \"npm run dev-be\" \"npm run run-camera\" \"npm run run-odroid\"",
     "dev-fe": "npm --prefix packages/metasave-fe run dev",
     "dev-be": "npm --prefix packages/metasave-be run dev",
-<<<<<<< HEAD
-    "dev-camera": "python packages/model/camera_nuc.py",
-    "dev-odroid": "python packages/model/odroid.py",
-=======
     "dev-camera": "python packages/model/camera.py",
     "dev-apitest": "python packages/model/test/apitest.py",
     "dev-odroid": "python packages/model/odroid.py",
     "dev-listen-ble": "python packages/model/listenDeviceBLE.py",
     "dev-listen-wired": "python packages/model/listenDeviceWired.py",
->>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
     "dev-listen": "python packages/model/listenDevice.py",
     "compile-contract": "",
     "deploy-contract": ""

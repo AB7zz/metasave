@@ -19,16 +19,10 @@ const insertFall = async (req, res) => {
   try {
     const AAProvider = await AA(req.body.PRIV_KEY)
     const PRIV_KEY = req.body.PRIV_KEY
-<<<<<<< HEAD
-<<<<<<< Updated upstream
     const CFAddress = AAProvider.getAddress()
-=======
     const CFAddress = await AAProvider.getAddress()
     console.log('CFFAddress', CFAddress)
->>>>>>> Stashed changes
-=======
     const CFAddress = AAProvider.getAddress()
->>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
     const provider = new ethers.providers.JsonRpcProvider(
       ALCHEMY_API_URL,
     )
@@ -58,22 +52,6 @@ const insertFall = async (req, res) => {
 
     console.log('ipfs id:', ipfsid)
 
-<<<<<<< HEAD
-    const phones = [
-      { name: "fidha", phoneNumber: "+918848357729" }
-    ]
-
-    const details = await axios.get(`${PINATA_BASE_URL}/ipfs/${ipfsid}`)
-
-    console.log('details:', details.data)
-    console.log('phones:', details.data.phone)
-    console.log('phones:', phones)
-
-    const falldetails = JSON.parse(req.body.PREDICTION_DATA)
-
-    for (let i = 0; i < phones.length; i++) {
-      let ph = phones[i].phoneNumber.replace(' ', '').replace('+', '')
-=======
     
     const details = await axios.get(`${PINATA_BASE_URL}/ipfs/${ipfsid}`)
     
@@ -88,7 +66,6 @@ const insertFall = async (req, res) => {
     for (let i = 0; i < phones.length; i++) {
       // let ph = phones[i].phoneNumber.replace(' ', '').replace('+', '')
       let ph = dummyPhoneNumber.replace(' ', '').replace('+', '')
->>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
       const res = sendMessage(
         `${PINATA_BASE_URL}/ipfs/${imgIPFSid}`,
         details.data.name,

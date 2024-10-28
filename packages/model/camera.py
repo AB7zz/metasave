@@ -117,19 +117,11 @@ env_vars = dotenv_values()
 
 PRIV_KEY = env_vars["PRIV_KEY"]
 
-<<<<<<< HEAD
-url = 'http://localhost:5000/api/fall'  
-
-# scheduled to run on GPU by default
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-weights = torch.load('packages/model/ST-FALL (large).pt', map_location=torch.device('cpu'))    
-=======
 url = env_vars["BACKEND_URL"]  
 
 # scheduled to run on GPU by default
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 weights = torch.load('packages/model/ST-FALL (large).pt', map_location=torch.device('cpu'), weights_only=False)    
->>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
 model = weights['model']
 model = model.half().to(device)
 _ = model.eval()
@@ -248,11 +240,7 @@ while(cap.isOpened):
                 date = now.strftime('%d-%m-%Y')
                 _, buffer = cv2.imencode('.jpg', im0)
                 prediction_data = {
-<<<<<<< HEAD
-                  'username': 'ALOSH',
-=======
                   'username': 'ABHINAV C V',
->>>>>>> b08c9e3204e301c000ece0b62c41b7e84b39c958
                   'timestamp': timestamp,
                   'date': date,
                   'status': 'fallen',

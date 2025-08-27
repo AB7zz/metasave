@@ -1,0 +1,56 @@
+# Ultralytics YOLO11n-pose configuration for pose estimation
+# Model docs: https://docs.ultralytics.com/models/yolo11
+# Task docs: https://docs.ultralytics.com/tasks/pose
+# AGPL-3.0 License - https://ultralytics.com/license
+
+# Parameters
+nc: 1  # number of classes (person class for COCO keypoints)
+kpt_shape: [17, 3]  # number of keypoints, number of dims (x, y, visible)
+depth_multiple: 0.33  # model depth multiple for nano model
+width_multiple: 0.25  # layer channel multiple for nano model
+dw_conv_kpt: True  # use depth-wise convolutions for keypoints
+
+# Anchors for detection (optimized for COCO dataset)
+anchors:
+  - [10,13, 16,30, 33,23]  # P3/8
+  - [30,61, 62,45, 59,119]  # P4/16
+  - [116,90, 156,198, 373,326]  # P5/32
+
+# YOLO11n backbone
+backbone:
+  # [from, number, module, args]
+  - [-1, 1, Conv, [64, 3, 2]]  # 0-P1/2
+  - [-1, 1, Conv, [128, 3, 2]]  # 1-P2/4
+  - [-1, 1, C3, [128, 3]]  # 2
+  - [-1, 1, Conv, [256, 3, 2]]  # 3-P3/8
+  - [-1, 2, C3, [256, 3]]  # 4
+  - [-1, 1, Conv, [512, 3, 2]]  # 5-P4/16
+  - [-1, 1, C3, [512, 3]]  # 6
+  - [-1, 1, Conv, [768, 3, 2]]  # 7-P5/32
+  - [-1, 1, C3, [768, 1]]  # 8
+  - [-1, 1, SPPF, [768, 5]]  # 9
+
+# YOLO11n head
+head:
+  - [-1, 1, Conv, [512, 1, 1]]  # 10
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]  # 11
+  - [[-1, 6], 1, Concat, [1]]  # 12, cat backbone P4
+  - [-1, 1, C3, [512, 3, False]]  # 13
+
+  - [-1, 1, Conv, [256, 1, 1]]  # 14
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]  # 15
+  - [[-1, 4], 1, Concat, [1]]  # 16, cat backbone P3
+  - [-1, 1, C3, [256, 3, False]]  # 17
+
+  - [-1, 1, Conv, [256, 3, 2]]  # 18
+  - [[-1, 13], 1, Concat, [1]]  # 19, cat head P4
+  - [-1, 1, C3, [512, 3, False]]  # 20
+
+  - [-1, 1, Conv, [512, 3, 2]]  # 21
+  - [[-1, 10], 1, Concat, [1]]  # 22, cat head P5
+  - [-1, 1, C3, [768, 3, False]]  # 23
+
+  - [17, 1, Conv, [256, 3, 1]]  # 24, P3 output
+  - [20, 1, Conv, [512, 3, 1]]  # 25, P4 output
+  - [23, 1, Conv, [768, 3, 1]]  # 26, P5 output
+  - [[24, 25, 26], 1, IKeypoint, [nc, anchors, kpt_shape]]  # 27, Detect(P3, P4, P5)
